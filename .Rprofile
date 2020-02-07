@@ -6,3 +6,5 @@ if (requireNamespace("workflowr", quietly = TRUE)) {
 } else {
   message("workflowr package not installed, please run install.packages(\"workflowr\") to use the workflowr functions")
 }
+
+Sys.setenv(RETICULATE_PYTHON = "~/anaconda3/bin/python")

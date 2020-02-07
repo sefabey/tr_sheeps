@@ -506,10 +506,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree5cfbe4165cc285c2dadbb8b85730a11690e12472targetblank5cfbe41a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/sefabey/tr_sheeps/tree/5cfbe4165cc285c2dadbb8b85730a11690e12472" target="_blank">5cfbe41</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree6a8372866e49edbbaf03319aac469ce1e67ae301targetblank6a83728a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/sefabey/tr_sheeps/tree/6a8372866e49edbbaf03319aac469ce1e67ae301" target="_blank">6a83728</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree5cfbe4165cc285c2dadbb8b85730a11690e12472targetblank5cfbe41a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree6a8372866e49edbbaf03319aac469ce1e67ae301targetblank6a83728a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -519,6 +519,7 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
+    Ignored:    docs/figure/
 
 </code></pre>
 <p>
@@ -557,6 +558,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/sefabey/tr_sheeps/blob/6a8372866e49edbbaf03319aac469ce1e67ae301/analysis/sheeps.Rmd" target="_blank">6a83728</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-07
+</td>
+<td>
+add plot by sex
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/sefabey/tr_sheeps/e518c7af57751784a31b2fa05d978cc8a503f2a5/docs/sheeps.html" target="_blank">e518c7a</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -622,7 +657,10 @@ library(janitor)
 
 df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
   clean_names()</code></pre>
-<p>##Data</p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>Can be explored using the buttons.</p>
 <pre class="r"><code>df %&gt;% 
   rmarkdown::paged_table()</code></pre>
 <div data-pagedtable="false">
@@ -644,10 +682,35 @@ df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
     
   )</code></pre>
 <div id="htmlwidget-d23d9cde78d0ea8b88e8" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d23d9cde78d0ea8b88e8">{"x":{"visdat":{"2f4d4df245a0":["function () ","plotlyVisDat"]},"cur_data":"2f4d4df245a0","attrs":{"2f4d4df245a0":{"x":{},"y":{},"mode":"lines+markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sheep Counts in Turkey","yaxis":{"domain":[0,1],"automargin":true,"range":[0,40000000],"title":"Sheep Count"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Source: TUIK"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[25201155,25304325,25616912,25462293,23974591,21749508,23089691,25031565,27425233,29284247,31140244,31507934,30983933,33677636,35194972,37276050],"mode":"lines+markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-d23d9cde78d0ea8b88e8">{"x":{"visdat":{"4b2a1b22cc54":["function () ","plotlyVisDat"]},"cur_data":"4b2a1b22cc54","attrs":{"4b2a1b22cc54":{"x":{},"y":{},"mode":"lines+markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sheep Counts in Turkey","yaxis":{"domain":[0,1],"automargin":true,"range":[0,40000000],"title":"Sheep Count"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Source: TUIK"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[25201155,25304325,25616912,25462293,23974591,21749508,23089691,25031565,27425233,29284247,31140244,31507934,30983933,33677636,35194972,37276050],"mode":"lines+markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p>Seems like numbers from <span class="citation">@DrDataStats</span> is right.</p>
 </div>
 <div id="further-exploration" class="section level2">
 <h2>Further Exploration</h2>
+<div id="sheep-trends-by-sex" class="section level3">
+<h3>Sheep trends by sex</h3>
+<pre class="r"><code>df %&gt;% 
+  mutate(sheep_type= ifelse(stringr::str_detect(yas, &#39;Merinos&#39;), &quot;merinos&quot;, &quot;other&quot;)) %&gt;% 
+  mutate(sheep_age= case_when( 
+    stringr::str_detect(yas, &quot;6 Aydan Küçük&quot;) ~ &quot;6 months&quot;, 
+    stringr::str_detect(yas, &quot;6 - 12 Ay Arası&quot;) ~ &quot;6-12 months&quot;, 
+    stringr::str_detect(yas, &quot;12 - 24 Ay&quot;) ~ &quot;12-24 months&quot;, 
+    stringr::str_detect(yas, &quot;2 Ve Daha Yukarı&quot;) ~ &quot;Over 24 months&quot;
+  )) %&gt;% 
+  mutate(sheep_sex= case_when( 
+    stringr::str_detect(yas, &quot;Koç&quot;) ~ &quot;male&quot;, 
+    stringr::str_detect(yas, &quot;Dişi Koyun&quot;) ~ &quot;female&quot;, 
+    T ~ &#39;both&#39;
+  )) %&gt;% 
+  group_by(yil, sheep_sex) %&gt;% 
+  summarise(total_koyun =sum(sayi)) %&gt;% 
+  ggplot(aes(x=yil, y=total_koyun, colour=sheep_sex))+
+  geom_line(size=1)+
+  scale_y_continuous(label=scales::comma)+
+  hrbrthemes::theme_ipsum_rc()+
+  labs(title = &quot;Sheep counts in Turkey, by sex&quot;, y=&quot;Sheep Count&quot;, x=&quot;Year&quot;, subtitle = &quot;Source: TUIK&quot;,caption = &quot;@SefaOzalp, 2020&quot;)</code></pre>
+<p><img src="figure/sheeps.Rmd/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /></p>
+<p>Looks like male sheep trends are stable while female sheep counts have increased steadily.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -676,28 +739,31 @@ other attached packages:
  [9] ggplot2_3.2.1   tidyverse_1.2.1
 
 loaded via a namespace (and not attached):
- [1] tidyselect_0.2.5  xfun_0.9          haven_2.1.1      
- [4] lattice_0.20-38   snakecase_0.11.0  colorspace_1.4-1 
- [7] vctrs_0.2.1       generics_0.0.2    viridisLite_0.3.0
-[10] htmltools_0.3.6   yaml_2.2.0        plotly_4.9.0     
-[13] rlang_0.4.2       later_0.8.0       pillar_1.4.2     
-[16] glue_1.3.1        withr_2.1.2       modelr_0.1.5     
-[19] readxl_1.3.1      lifecycle_0.1.0   munsell_0.5.0    
-[22] gtable_0.3.0      workflowr_1.4.0   cellranger_1.1.0 
-[25] rvest_0.3.4       htmlwidgets_1.3   evaluate_0.14    
-[28] knitr_1.25        httpuv_1.5.2      crosstalk_1.0.0  
-[31] broom_0.5.2       Rcpp_1.0.3        xtable_1.8-4     
-[34] promises_1.0.1    scales_1.0.0      backports_1.1.5  
-[37] jsonlite_1.6      mime_0.7          fs_1.3.1         
-[40] hms_0.5.2         digest_0.6.23     stringi_1.4.3    
-[43] shiny_1.3.2       grid_3.6.1        rprojroot_1.3-2  
-[46] here_0.1          cli_1.1.0         tools_3.6.1      
-[49] magrittr_1.5      lazyeval_0.2.2    crayon_1.3.4     
-[52] whisker_0.4       pkgconfig_2.0.3   zeallot_0.1.0    
-[55] data.table_1.12.2 xml2_1.2.2        lubridate_1.7.4  
-[58] assertthat_0.2.1  rmarkdown_1.15    httr_1.4.1       
-[61] rstudioapi_0.10   R6_2.4.0          nlme_3.1-141     
-[64] git2r_0.26.1      compiler_3.6.1   </code></pre>
+ [1] Rcpp_1.0.3        lubridate_1.7.4   here_0.1         
+ [4] lattice_0.20-38   assertthat_0.2.1  zeallot_0.1.0    
+ [7] rprojroot_1.3-2   digest_0.6.23     mime_0.7         
+[10] R6_2.4.0          cellranger_1.1.0  backports_1.1.5  
+[13] evaluate_0.14     httr_1.4.1        pillar_1.4.2     
+[16] gdtools_0.2.0     rlang_0.4.2       hrbrthemes_0.6.0 
+[19] lazyeval_0.2.2    readxl_1.3.1      rstudioapi_0.10  
+[22] data.table_1.12.2 extrafontdb_1.0   whisker_0.4      
+[25] rmarkdown_1.15    labeling_0.3      extrafont_0.17   
+[28] htmlwidgets_1.3   munsell_0.5.0     shiny_1.3.2      
+[31] broom_0.5.2       compiler_3.6.1    httpuv_1.5.2     
+[34] modelr_0.1.5      xfun_0.9          systemfonts_0.1.1
+[37] pkgconfig_2.0.3   htmltools_0.3.6   tidyselect_0.2.5 
+[40] workflowr_1.4.0   viridisLite_0.3.0 crayon_1.3.4     
+[43] withr_2.1.2       later_0.8.0       grid_3.6.1       
+[46] Rttf2pt1_1.3.7    nlme_3.1-141      jsonlite_1.6     
+[49] xtable_1.8-4      gtable_0.3.0      lifecycle_0.1.0  
+[52] git2r_0.26.1      magrittr_1.5      scales_1.0.0     
+[55] cli_1.1.0         stringi_1.4.3     fs_1.3.1         
+[58] promises_1.0.1    snakecase_0.11.0  xml2_1.2.2       
+[61] generics_0.0.2    vctrs_0.2.1       tools_3.6.1      
+[64] glue_1.3.1        hms_0.5.2         crosstalk_1.0.0  
+[67] yaml_2.2.0        colorspace_1.4-1  rvest_0.3.4      
+[70] plotly_4.9.0      knitr_1.25        haven_2.1.1      </code></pre>
+</div>
 </div>
 </div>
 

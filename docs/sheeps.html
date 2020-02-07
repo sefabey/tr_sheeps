@@ -37,6 +37,8 @@
 <script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 <link href="site_libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
 <script src="site_libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -363,7 +365,13 @@ div.tocify {
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/sefabey/tr_sheeps">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -498,10 +506,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong9b38613"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> 9b38613 </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree5cfbe4165cc285c2dadbb8b85730a11690e12472targetblank5cfbe41a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/sefabey/tr_sheeps/tree/5cfbe4165cc285c2dadbb8b85730a11690e12472" target="_blank">5cfbe41</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong9b38613" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree5cfbe4165cc285c2dadbb8b85730a11690e12472targetblank5cfbe41a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -511,14 +519,6 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Untracked files:
-    Untracked:  code/sheep_counts.py
-    Untracked:  data/pivot.xls
-    Untracked:  data/sheeps.csv
-
-Unstaged changes:
-    Modified:   .Rprofile
 
 </code></pre>
 <p>
@@ -562,7 +562,41 @@ Message
 Rmd
 </td>
 <td>
-9b38613
+<a href="https://github.com/sefabey/tr_sheeps/blob/5cfbe4165cc285c2dadbb8b85730a11690e12472/analysis/sheeps.Rmd" target="_blank">5cfbe41</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-07
+</td>
+<td>
+update plot
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/sefabey/tr_sheeps/e9d3dbdf42839b27252f5d808d2a8c5ca36a5216/docs/sheeps.html" target="_blank">e9d3dbd</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-07
+</td>
+<td>
+Build site.
+</td>
+</tr>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/sefabey/tr_sheeps/blob/9b38613d8e5d054d97a83959dedeebb30b430d0b/analysis/sheeps.Rmd" target="_blank">9b38613</a>
 </td>
 <td>
 Sefa Ozalp
@@ -583,29 +617,11 @@ update plot
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>── Attaching packages ───────────────────── tidyverse 1.2.1 ──</code></pre>
-<pre><code>✔ ggplot2 3.2.1     ✔ purrr   0.3.2
-✔ tibble  2.1.3     ✔ dplyr   0.8.3
-✔ tidyr   1.0.0     ✔ stringr 1.4.0
-✔ readr   1.3.1     ✔ forcats 0.4.0</code></pre>
-<pre><code>── Conflicts ──────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(janitor)</code></pre>
-<pre><code>
-Attaching package: &#39;janitor&#39;</code></pre>
-<pre><code>The following objects are masked from &#39;package:stats&#39;:
+<pre class="r"><code>library(tidyverse)
+library(janitor)
 
-    chisq.test, fisher.test</code></pre>
-<pre class="r"><code>df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
+df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
   clean_names()</code></pre>
-<pre><code>Parsed with column specification:
-cols(
-  Yas = col_character(),
-  yil = col_double(),
-  sayi = col_double()
-)</code></pre>
 <p>##Data</p>
 <pre class="r"><code>df %&gt;% 
   rmarkdown::paged_table()</code></pre>
@@ -628,7 +644,7 @@ cols(
     
   )</code></pre>
 <div id="htmlwidget-d23d9cde78d0ea8b88e8" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d23d9cde78d0ea8b88e8">{"x":{"visdat":{"2c9a72f8fc49":["function () ","plotlyVisDat"]},"cur_data":"2c9a72f8fc49","attrs":{"2c9a72f8fc49":{"x":{},"y":{},"mode":"lines+markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sheep Counts in Turkey","yaxis":{"domain":[0,1],"automargin":true,"range":[0,40000000],"title":"Sheep Count"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Source: TUIK"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[25201155,25304325,25616912,25462293,23974591,21749508,23089691,25031565,27425233,29284247,31140244,31507934,30983933,33677636,35194972,37276050],"mode":"lines+markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-d23d9cde78d0ea8b88e8">{"x":{"visdat":{"2f4d4df245a0":["function () ","plotlyVisDat"]},"cur_data":"2f4d4df245a0","attrs":{"2f4d4df245a0":{"x":{},"y":{},"mode":"lines+markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sheep Counts in Turkey","yaxis":{"domain":[0,1],"automargin":true,"range":[0,40000000],"title":"Sheep Count"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Source: TUIK"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[25201155,25304325,25616912,25462293,23974591,21749508,23089691,25031565,27425233,29284247,31140244,31507934,30983933,33677636,35194972,37276050],"mode":"lines+markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="further-exploration" class="section level2">
 <h2>Further Exploration</h2>

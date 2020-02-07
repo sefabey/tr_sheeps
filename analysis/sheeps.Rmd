@@ -1,0 +1,49 @@
+---
+title: "Turkish Sheep Counts"
+author: "Sefa Ozalp"
+date: "2020-02-07"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+## Introduction
+
+```{r}
+library(tidyverse)
+library(janitor)
+
+df <- read_csv(here::here("/data/sheeps.csv")) %>%
+  clean_names()
+
+
+```
+
+
+##Data
+
+```{r}
+df %>% 
+  rmarkdown::paged_table()
+```
+
+
+## Interactive Viz
+```{r}
+df %>% 
+  group_by(yil) %>% 
+  summarise(total_koyun =sum(sayi)) %>% 
+  plotly::plot_ly(x= ~yil, y=~total_koyun, 
+                  type = 'scatter', mode='lines+markers') %>% 
+  plotly::layout( title="Sheep Counts in Turkey",
+    yaxis = list(range=c(0,40000000), title= "Sheep Count"),
+     xaxis = list(title= "Source: TUIK")
+    
+  )
+```
+
+## Further Exploration
+```{r}
+
+```
+

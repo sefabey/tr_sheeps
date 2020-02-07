@@ -20,8 +20,9 @@ df <- read_csv(here::here("/data/sheeps.csv")) %>%
 ```
 
 
-##Data
+## Data
 
+Can be explored using the buttons. 
 ```{r}
 df %>% 
   rmarkdown::paged_table()
@@ -42,8 +43,36 @@ df %>%
   )
 ```
 
-## Further Exploration
-```{r}
+Seems like numbers from @DrDataStats is right.
 
+## Further Exploration
+
+### Sheep trends by sex
+
+
+```{r,fig.retina=T,fig.height=6, fig.width=8}
+df %>% 
+  mutate(sheep_type= ifelse(stringr::str_detect(yas, 'Merinos'), "merinos", "other")) %>% 
+  mutate(sheep_age= case_when( 
+    stringr::str_detect(yas, "6 Aydan Küçük") ~ "6 months", 
+    stringr::str_detect(yas, "6 - 12 Ay Arası") ~ "6-12 months", 
+    stringr::str_detect(yas, "12 - 24 Ay") ~ "12-24 months", 
+    stringr::str_detect(yas, "2 Ve Daha Yukarı") ~ "Over 24 months"
+  )) %>% 
+  mutate(sheep_sex= case_when( 
+    stringr::str_detect(yas, "Koç") ~ "male", 
+    stringr::str_detect(yas, "Dişi Koyun") ~ "female", 
+    T ~ 'both'
+  )) %>% 
+  group_by(yil, sheep_sex) %>% 
+  summarise(total_koyun =sum(sayi)) %>% 
+  ggplot(aes(x=yil, y=total_koyun, colour=sheep_sex))+
+  geom_line(size=1)+
+  scale_y_continuous(label=scales::comma)+
+  hrbrthemes::theme_ipsum_rc()+
+  labs(title = "Sheep counts in Turkey, by sex", y="Sheep Count", x="Year", subtitle = "Source: TUIK",caption = "@SefaOzalp, 2020")
+  
 ```
+
+Looks like male sheep trends are stable while female sheep counts have increased steadily. 
 

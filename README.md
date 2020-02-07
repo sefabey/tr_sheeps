@@ -1,5 +1,3 @@
 # tr_sheeps
 
-A [workflowr][] project.
-
-[workflowr]: https://github.com/jdblischak/workflowr
+A project for TR sheeps.

@@ -50,7 +50,7 @@ Seems like numbers from @DrDataStats is right.
 ### Sheep trends by sex
 
 
-```{r,fig.retina=T,fig.height=6, fig.width=8}
+```{r,fig.height=8, fig.width=12, dpi=500}
 df %>% 
   mutate(sheep_type= ifelse(stringr::str_detect(yas, 'Merinos'), "merinos", "other")) %>% 
   mutate(sheep_age= case_when( 
@@ -74,5 +74,41 @@ df %>%
   
 ```
 
-Looks like male sheep trends are stable while female sheep counts have increased steadily. 
+Looks like male sheep (> 2 years old) and young sheep from both sexes (< 2 years old) trends are stable while female sheep (> 2 years old) counts have increased steadily since 2009. Given it is only the older female sheep trends that's increasing, my hypothesis that these trends reflect the increased demand in sheep milk or profitability. According to this [article](https://www.dairyglobal.net/Articles/General/2016/6/Milking-sheep-and-goats-a-profitable-business-in-Turkey-2816984W/), sheep has a lactation period of only four months per year and so increased demand would require increasing milking flock sizes. 
+
+
+### Sheep trends by sex and breed
+
+
+```{r,fig.height=8, fig.width=12, dpi=500}
+df %>% 
+  mutate(sheep_breed= ifelse(stringr::str_detect(yas, 'Merinos'), "merinos", "local/other")) %>% 
+  mutate(sheep_age= case_when( 
+    stringr::str_detect(yas, "6 Aydan Küçük") ~ "6 months", 
+    stringr::str_detect(yas, "6 - 12 Ay Arası") ~ "6-12 months", 
+    stringr::str_detect(yas, "12 - 24 Ay") ~ "12-24 months", 
+    stringr::str_detect(yas, "2 Ve Daha Yukarı") ~ "Over 24 months"
+  )) %>% 
+  mutate(sheep_sex= case_when( 
+    stringr::str_detect(yas, "Koç") ~ "male", 
+    stringr::str_detect(yas, "Dişi Koyun") ~ "female", 
+    T ~ 'both (young lambs)'
+  )) %>% 
+  group_by(yil, sheep_sex, sheep_breed) %>% 
+  summarise(total_koyun =sum(sayi)) %>% 
+  ggplot(aes(x=yil, y=total_koyun, colour=sheep_sex))+
+  geom_line(size=1)+
+  scale_y_continuous(label=scales::comma)+
+  hrbrthemes::theme_ipsum_rc()+
+  labs(title = "Sheep counts in Turkey, by sex and breed", y="Sheep Count", x="Year", subtitle = "Source: TUIK",caption = "@SefaOzalp, 2020") + 
+  facet_wrap(~sheep_breed, nrow = 2, scales = "free_y")
+  
+```
+
+Here, please note the discrepancy between scales for y axes to see the trends in merinos breed. First observation is that, Turkish sheep production relies primarily on local/other sheep breed (roughly with a 1 to 10 merinos/local-other ratio). Second, we observe that the number of female local/other sheep has more than doubled since 2008 while young lams and male sheep trends relatively follow the same pattern. Third, the merinos breed has more than doubled in the last 10 years for young lambs (both sexes) and more than tripled for female female sheep. 
+
+Lets also check age groups.
+
+## Age Groups
+
 

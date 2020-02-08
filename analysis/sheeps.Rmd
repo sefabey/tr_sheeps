@@ -9,6 +9,8 @@ editor_options:
 
 ## Introduction
 
+This is a quick visual exploration of Turkish lamb trends. The data are downloaded from Turkish Statistical Institute (TUIK) website and only available from 2004 onwards. The raw data are available [here](https://github.com/sefabey/tr_sheeps/blob/master/data/pivot.xls).
+
 ```{r,message=F}
 library(tidyverse)
 library(janitor)
@@ -30,7 +32,7 @@ df %>%
 
 
 ## Interactive Viz
-```{r}
+```{r plotly_general_trend}
 df %>% 
   group_by(yil) %>% 
   summarise(total_koyun =sum(sayi)) %>% 
@@ -50,7 +52,7 @@ Seems like numbers from @DrDataStats is right.
 ### Sheep trends by sex
 
 
-```{r,fig.height=8, fig.width=12, dpi=500}
+```{r tr_sheep_sex,fig.height=8, fig.width=12, dpi=500}
 df %>% 
   mutate(sheep_type= ifelse(stringr::str_detect(yas, 'Merinos'), "merinos", "other")) %>% 
   mutate(sheep_age= case_when( 
@@ -80,7 +82,7 @@ Looks like male sheep (> 2 years old) and young sheep from both sexes (< 2 years
 ### Sheep trends by sex and breed
 
 
-```{r,fig.height=8, fig.width=12, dpi=500}
+```{r tr_sheep_sex_and_breed, fig.height=8, fig.width=12, dpi=500}
 df %>% 
   mutate(sheep_breed= ifelse(stringr::str_detect(yas, 'Merinos'), "merinos", "local/other")) %>% 
   mutate(sheep_age= case_when( 
@@ -109,6 +111,32 @@ Here, please note the discrepancy between scales for y axes to see the trends in
 
 Lets also check age groups.
 
-## Age Groups
+### Age Groups and Breed
 
 
+```{r tr_sheep_age_groups,fig.height=12, fig.width=12, dpi=500}
+df %>% 
+  mutate(sheep_breed= ifelse(stringr::str_detect(yas, 'Merinos'), "merinos", "local/other")) %>% 
+  mutate(sheep_age= case_when( 
+    stringr::str_detect(yas, "6 Aydan Küçük") ~ "6 months", 
+    stringr::str_detect(yas, "6 - 12 Ay Arası") ~ "6-12 months", 
+    stringr::str_detect(yas, "12 - 24 Ay") ~ "12-24 months", 
+    stringr::str_detect(yas, "2 Ve Daha Yukarı") ~ "Over 24 months"
+  )) %>% 
+  mutate(sheep_age=  factor (sheep_age, levels=c("6 months","6-12 months", "12-24 months","Over 24 months" ))) %>% 
+  mutate(sheep_sex= case_when( 
+    stringr::str_detect(yas, "Koç") ~ "male", 
+    stringr::str_detect(yas, "Dişi Koyun") ~ "female", 
+    T ~ 'both (young lambs)'
+  )) %>% 
+  group_by(yil, sheep_sex, sheep_age, sheep_breed) %>% 
+  summarise(total_koyun =sum(sayi)) %>% 
+  ggplot(aes(x=yil, y=total_koyun, colour=sheep_sex))+
+  geom_line(size=1)+
+  scale_y_continuous(label=scales::comma,)+
+  hrbrthemes::theme_ipsum_rc()+
+  labs(title = "Sheep counts in Turkey, by sex, age, and breed", y="Sheep Count", x="Year", subtitle = "Source: TUIK",caption = "@SefaOzalp, 2020") + 
+  facet_wrap(vars(sheep_age,sheep_breed), nrow = 4, scales = "free_y")
+```
+
+Based on this chart, within the last 10 years, we can confidently suggest that there is more than a 50% increase in lamb counts across all age groups and breeds captured by TUIK stats, except the local/other lambs younger than 6 months. Despite a slight uptick in the last two years, the latter group has decreased more than 50% since 2014. This might suggest problematic lambing trends for sheep production of local variety in the long term.  

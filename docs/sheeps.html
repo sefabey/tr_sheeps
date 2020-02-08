@@ -397,7 +397,7 @@ div.section {
 
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </button>
 </p>
 <div id="workflowr-report" class="collapse">
@@ -406,7 +406,7 @@ div.section {
 <a data-toggle="tab" href="#summary">Summary</a>
 </li>
 <li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> </a>
+<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -418,7 +418,7 @@ div.section {
 <strong>Last updated:</strong> 2020-02-08
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong> <code>tr_sheeps/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -434,12 +434,12 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges"> <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
+<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
 </div>
 </div>
 </div>
@@ -506,10 +506,10 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstreeb0e6e807ce244b84901372289c0ceb6c92214599targetblankb0e6e80a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/sefabey/tr_sheeps/tree/b0e6e807ce244b84901372289c0ceb6c92214599" target="_blank">b0e6e80</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree6f855db0d41bc89974c6989f0cc5afc69356adectargetblank6f855dba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/sefabey/tr_sheeps/tree/6f855db0d41bc89974c6989f0cc5afc69356adec" target="_blank">6f855db</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstreeb0e6e807ce244b84901372289c0ceb6c92214599targetblankb0e6e80a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomsefabeytrsheepstree6f855db0d41bc89974c6989f0cc5afc69356adectargetblank6f855dba" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility. The version displayed above was the version of the Git repository at the time these results were generated. <br><br> Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -519,9 +519,6 @@ Ignored files:
     Ignored:    .DS_Store
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/sheeps.Rmd
 
 </code></pre>
 <p>
@@ -560,6 +557,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/sefabey/tr_sheeps/blob/6f855db0d41bc89974c6989f0cc5afc69356adec/analysis/sheeps.Rmd" target="_blank">6f855db</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-08
+</td>
+<td>
+update plot
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/sefabey/tr_sheeps/6f855db0d41bc89974c6989f0cc5afc69356adec/docs/sheeps.html" target="_blank">6f855db</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-08
+</td>
+<td>
+update plot
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -736,7 +767,7 @@ df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
     
   )</code></pre>
 <div id="htmlwidget-d23d9cde78d0ea8b88e8" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d23d9cde78d0ea8b88e8">{"x":{"visdat":{"80137f88ed28":["function () ","plotlyVisDat"]},"cur_data":"80137f88ed28","attrs":{"80137f88ed28":{"x":{},"y":{},"mode":"lines+markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sheep Counts in Turkey","yaxis":{"domain":[0,1],"automargin":true,"range":[0,40000000],"title":"Sheep Count"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Source: TUIK"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[25201155,25304325,25616912,25462293,23974591,21749508,23089691,25031565,27425233,29284247,31140244,31507934,30983933,33677636,35194972,37276050],"mode":"lines+markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-d23d9cde78d0ea8b88e8">{"x":{"visdat":{"80c23e58bfab":["function () ","plotlyVisDat"]},"cur_data":"80c23e58bfab","attrs":{"80c23e58bfab":{"x":{},"y":{},"mode":"lines+markers","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Sheep Counts in Turkey","yaxis":{"domain":[0,1],"automargin":true,"range":[0,40000000],"title":"Sheep Count"},"xaxis":{"domain":[0,1],"automargin":true,"title":"Source: TUIK"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019],"y":[25201155,25304325,25616912,25462293,23974591,21749508,23089691,25031565,27425233,29284247,31140244,31507934,30983933,33677636,35194972,37276050],"mode":"lines+markers","type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>Seems like numbers from <span class="citation">@DrDataStats</span> is right.</p>
 </div>
 <div id="further-exploration" class="section level2">
@@ -764,6 +795,43 @@ df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
   hrbrthemes::theme_ipsum_rc()+
   labs(title = &quot;Sheep counts in Turkey, by sex&quot;, y=&quot;Sheep Count&quot;, x=&quot;Year&quot;, subtitle = &quot;Source: TUIK&quot;,caption = &quot;@SefaOzalp, 2020&quot;)</code></pre>
 <p><img src="figure/sheeps.Rmd/tr_sheep_sex-1.png" width="6000" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-tr_sheep_sex-1">
+Past versions of tr_sheep_sex-1.png
+</button>
+</p>
+<div id="fig-tr_sheep_sex-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/sefabey/tr_sheeps/blob/6f855db0d41bc89974c6989f0cc5afc69356adec/docs/figure/sheeps.Rmd/tr_sheep_sex-1.png" target="_blank">6f855db</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Looks like male sheep (&gt; 2 years old) and young sheep from both sexes (&lt; 2 years old) trends are stable while female sheep (&gt; 2 years old) counts have increased steadily since 2009. Given it is only the older female sheep trends that’s increasing, my hypothesis that these trends reflect the increased demand in sheep milk or profitability. According to this <a href="https://www.dairyglobal.net/Articles/General/2016/6/Milking-sheep-and-goats-a-profitable-business-in-Turkey-2816984W/">article</a>, sheep has a lactation period of only four months per year and so increased demand would require increasing milking flock sizes.</p>
 </div>
 <div id="sheep-trends-by-sex-and-breed" class="section level3">
@@ -790,6 +858,43 @@ df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
   labs(title = &quot;Sheep counts in Turkey, by sex and breed&quot;, y=&quot;Sheep Count&quot;, x=&quot;Year&quot;, subtitle = &quot;Source: TUIK&quot;,caption = &quot;@SefaOzalp, 2020&quot;) + 
   facet_wrap(~sheep_breed, nrow = 2, scales = &quot;free_y&quot;)</code></pre>
 <p><img src="figure/sheeps.Rmd/tr_sheep_sex_and_breed-1.png" width="6000" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-tr_sheep_sex_and_breed-1">
+Past versions of tr_sheep_sex_and_breed-1.png
+</button>
+</p>
+<div id="fig-tr_sheep_sex_and_breed-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/sefabey/tr_sheeps/blob/6f855db0d41bc89974c6989f0cc5afc69356adec/docs/figure/sheeps.Rmd/tr_sheep_sex_and_breed-1.png" target="_blank">6f855db</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Here, please note the discrepancy between scales for y axes to see the trends in merinos breed. First observation is that, Turkish sheep production relies primarily on local/other sheep breed (roughly with a 1 to 10 merinos/local-other ratio). Second, we observe that the number of female local/other sheep has more than doubled since 2008 while young lams and male sheep trends relatively follow the same pattern. Third, the merinos breed has more than doubled in the last 10 years for young lambs (both sexes) and more than tripled for female female sheep.</p>
 <p>Lets also check age groups.</p>
 </div>
@@ -818,6 +923,43 @@ df &lt;- read_csv(here::here(&quot;/data/sheeps.csv&quot;)) %&gt;%
   labs(title = &quot;Sheep counts in Turkey, by sex, age, and breed&quot;, y=&quot;Sheep Count&quot;, x=&quot;Year&quot;, subtitle = &quot;Source: TUIK&quot;,caption = &quot;@SefaOzalp, 2020&quot;) + 
   facet_wrap(vars(sheep_age,sheep_breed), nrow = 4, scales = &quot;free_y&quot;)</code></pre>
 <p><img src="figure/sheeps.Rmd/tr_sheep_age_groups-1.png" width="6000" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-tr_sheep_age_groups-1">
+Past versions of tr_sheep_age_groups-1.png
+</button>
+</p>
+<div id="fig-tr_sheep_age_groups-1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/sefabey/tr_sheeps/blob/6f855db0d41bc89974c6989f0cc5afc69356adec/docs/figure/sheeps.Rmd/tr_sheep_age_groups-1.png" target="_blank">6f855db</a>
+</td>
+<td>
+Sefa Ozalp
+</td>
+<td>
+2020-02-08
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <p>Based on this chart, within the last 10 years, we can confidently suggest that there is more than a 50% increase in lamb counts across all age groups and breeds captured by TUIK stats, except the local/other lambs younger than 6 months. Despite a slight uptick in the last two years, the latter group has decreased more than 50% since 2014. This might suggest problematic lambing trends for sheep production of local variety in the long term.</p>
 <br>
 <p>
